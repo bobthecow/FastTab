@@ -19,8 +19,10 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.0.0</string>
 	<key>NSPrincipalClass</key>
 	<string>FastTabPlugin</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright © 2011 Justin Hileman</string>
 </dict>
 </plist>
