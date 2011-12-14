@@ -22,7 +22,7 @@
 	NSDictionary *scriptError = [[NSDictionary alloc] init]; 
 	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:@"set numTabs to {}\n"
 																		"tell application \"Coda\"\n"
-																		"	set numTabs to numTabs & number of tabs of document 1\n"
+																		"	set numTabs to numTabs & number of tabs of window 1\n"
 																		"end tell\n"
 																		"return numTabs\n"];
 	NSAppleEventDescriptor *result = [appleScript executeAndReturnError:&scriptError];
@@ -49,8 +49,7 @@
 	
 	NSDictionary *scriptError = [[NSDictionary alloc] init]; 
 	NSString *tabScript =	@"tell application \"Coda\"\n"
-							"	set NewTab to tab %d of document 1\n"
-							"	set current tab of document 1 to NewTab\n"
+							"	set selected tab of window 1 to tab %d of window 1\n"
 							"end tell\n"; 
 
 	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:tabScript, tabNum]]; 
