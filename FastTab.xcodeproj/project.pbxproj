@@ -137,7 +137,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0410;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "FastTab" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -204,11 +204,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FastTab_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/Coda/PlugIns";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Coda 2/Plug-ins";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = FastTab;
 				SDKROOT = macosx10.6;
 				SKIP_INSTALL = NO;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) $(ARCHS_STANDARD_64_BIT)";
 				WRAPPER_EXTENSION = codaplugin;
 			};
 			name = Debug;
@@ -223,11 +224,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = FastTab_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/Coda/PlugIns";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Coda 2/Plug-ins";
 				PRODUCT_NAME = FastTab;
 				SDKROOT = macosx10.6;
 				SKIP_INSTALL = NO;
-				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) $(ARCHS_STANDARD_64_BIT)";
 				WRAPPER_EXTENSION = codaplugin;
 			};
 			name = Release;
@@ -240,6 +241,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.6;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) $(ARCHS_STANDARD_64_BIT)";
@@ -253,6 +255,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx10.6;
 				VALID_ARCHS = "$(ARCHS_STANDARD_32_BIT) $(ARCHS_STANDARD_64_BIT)";
 			};
