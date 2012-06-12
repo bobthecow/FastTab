@@ -51,22 +51,23 @@
 
 - (BOOL) validateMenuItem:(NSMenuItem *)menuItem {
 	int tabNum = [[[menuItem representedObject] objectForKey:@"tabNum"] intValue];
-
-    return (tabNum <= [self numberOfTabs]);
+    int numberOfTabs = [self numberOfTabs];
+    
+    return (numberOfTabs > 0 && tabNum <= numberOfTabs);
 }
 
 - (void) switchToTab:(NSMenuItem *)menuItem {
 	int tabNum = [[[menuItem representedObject] objectForKey:@"tabNum"] intValue];
     int numberOfTabs = [self numberOfTabs];
-	
+
+    if (tabNum == 0) {
+        tabNum = numberOfTabs;
+    }
+
 	if (tabNum > numberOfTabs) {
 		return;
 	}
     
-    if (tabNum == 0) {
-        tabNum = numberOfTabs;
-    }
-	
 	NSDictionary *scriptError = [[NSDictionary alloc] init]; 
 	NSString *tabScript =	@"tell application id \"com.panic.Coda2\"\n"
 							"	set selected tab of window 1 to tab %d of window 1\n"
