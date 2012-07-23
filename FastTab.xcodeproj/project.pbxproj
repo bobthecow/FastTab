@@ -10,6 +10,7 @@
 		79BF17C30FD1ACFC009ADD4C /* FastTabPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 79BF17C20FD1ACFC009ADD4C /* FastTabPlugin.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		D0AF11C7159CBE590010BA5E /* libTapstream.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0AF11C6159CBE590010BA5E /* libTapstream.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		79BF17C20FD1ACFC009ADD4C /* FastTabPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastTabPlugin.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* FastTab.codaplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FastTab.codaplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0AF11C4159CBE590010BA5E /* Tapstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tapstream.h; sourceTree = "<group>"; };
+		D0AF11C6159CBE590010BA5E /* libTapstream.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTapstream.a; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -31,6 +34,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
+				D0AF11C7159CBE590010BA5E /* libTapstream.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +49,7 @@
 				089C167CFE841241C02AAC07 /* Resources */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
+				D0AF11C0159CBE590010BA5E /* Tapstream */,
 			);
 			name = FastTab;
 			sourceTree = "<group>";
@@ -108,6 +113,47 @@
 				32DBCF630370AF2F00C91783 /* FastTab_Prefix.pch */,
 			);
 			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		D0AF11C0159CBE590010BA5E /* Tapstream */ = {
+			isa = PBXGroup;
+			children = (
+				D0AF11C1159CBE590010BA5E /* usr */,
+			);
+			path = Tapstream;
+			sourceTree = "<group>";
+		};
+		D0AF11C1159CBE590010BA5E /* usr */ = {
+			isa = PBXGroup;
+			children = (
+				D0AF11C2159CBE590010BA5E /* local */,
+			);
+			path = usr;
+			sourceTree = "<group>";
+		};
+		D0AF11C2159CBE590010BA5E /* local */ = {
+			isa = PBXGroup;
+			children = (
+				D0AF11C3159CBE590010BA5E /* include */,
+				D0AF11C5159CBE590010BA5E /* lib */,
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
+		D0AF11C3159CBE590010BA5E /* include */ = {
+			isa = PBXGroup;
+			children = (
+				D0AF11C4159CBE590010BA5E /* Tapstream.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		D0AF11C5159CBE590010BA5E /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				D0AF11C6159CBE590010BA5E /* libTapstream.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +251,10 @@
 				GCC_PREFIX_HEADER = FastTab_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Coda 2/Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Tapstream/usr/local/lib\"",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = FastTab;
 				SDKROOT = macosx10.6;
@@ -225,6 +275,10 @@
 				GCC_PREFIX_HEADER = FastTab_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Coda 2/Plug-ins";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Tapstream/usr/local/lib\"",
+				);
 				PRODUCT_NAME = FastTab;
 				SDKROOT = macosx10.6;
 				SKIP_INSTALL = NO;

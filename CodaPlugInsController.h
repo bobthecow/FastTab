@@ -8,15 +8,15 @@
 
 @class CodaTextView;
 
-@interface CodaPlugInsController : NSObject 
+@interface CodaPlugInsController : NSObject
 {
-	NSMutableArray*			plugins;
-	NSMutableDictionary*	loadedMenuItemsDict;
+    NSMutableArray*         plugins;
+    NSMutableDictionary*    loadedMenuItemsDict;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// The following methods are available to plugin developers	in Coda 1.6 and   //
-// later:																	  //
+// The following methods are available to plugin developers in Coda 1.6 and   //
+// later:                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
 
 
@@ -25,13 +25,13 @@
 - (NSString*)codaVersion:(id)sender;
 
 
-// Returns to the plugin an abstract object representing the text view in Coda 
+// Returns to the plugin an abstract object representing the text view in Coda
 // that currently has focus
 
 - (CodaTextView*)focusedTextView:(id)sender;
 
 
-// Exposes to the user a plug-in action (a menu item) with the given title, that 
+// Exposes to the user a plug-in action (a menu item) with the given title, that
 // will perform the given selector on the target
 
 - (void)registerActionWithTitle:(NSString*)title target:(id)target selector:(SEL)selector;
@@ -42,7 +42,7 @@
 - (int)apiVersion;
 
 
-// Displays the provided HTML in a new tab. 
+// Displays the provided HTML in a new tab.
 
 - (void)displayHTMLString:(NSString*)html;
 
@@ -57,12 +57,12 @@
 // menu items, including submenu title, represented object, keyEquivalent and custom plug-in name.
 
 - (void)registerActionWithTitle:(NSString*)title
-		  underSubmenuWithTitle:(NSString*)submenuTitle
-						 target:(id)target
-					   selector:(SEL)selector
-			  representedObject:(id)repOb
-				  keyEquivalent:(NSString*)keyEquivalent
-					 pluginName:(NSString*)aName;
+          underSubmenuWithTitle:(NSString*)submenuTitle
+                         target:(id)target
+                       selector:(SEL)selector
+              representedObject:(id)repOb
+                  keyEquivalent:(NSString*)keyEquivalent
+                     pluginName:(NSString*)aName;
 
 
 // Causes the frontmost Coda window to save all documents that have unsaved changes.
@@ -72,8 +72,8 @@
 @end
 
 
-// 
-// This is your hook to a text view in Coda. You can use this to provide 
+//
+// This is your hook to a text view in Coda. You can use this to provide
 // manipulation of files.
 //
 
@@ -81,12 +81,12 @@
 
 @interface CodaTextView : NSObject
 {
-	StudioPlainTextEditor* editor;
+    StudioPlainTextEditor* editor;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
-// The following methods are available to plugin developers in Coda 1.6 and	  //
-// later.																	  //
+// The following methods are available to plugin developers in Coda 1.6 and   //
+// later.                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
 
 // Inserts the given string at the insertion point
@@ -113,7 +113,7 @@
 
 - (void)setSelectedRange:(NSRange)range;
 
-// Returns a string containing the entire content of the line that the insertion 
+// Returns a string containing the entire content of the line that the insertion
 // point is on
 
 - (NSString*)currentLine;
@@ -140,7 +140,7 @@
 - (NSRange)rangeOfCurrentLine;
 
 
-// StartOfLine returns the character index (relative to the beginning of the 
+// StartOfLine returns the character index (relative to the beginning of the
 // document) of the start of the line the insertion point is on
 
 - (unsigned int)startOfLine;
@@ -166,7 +166,7 @@
 - (NSRange)previousWordRange;
 
 
-// UsesTabs returns if the editor is currently uses tabs instead of spaces for 
+// UsesTabs returns if the editor is currently uses tabs instead of spaces for
 // indentation
 
 - (BOOL)usesTabs;
@@ -175,7 +175,7 @@
 
 - (void)save;
 
-// Saves the document you are working on to a local path, returns YES if 
+// Saves the document you are working on to a local path, returns YES if
 // successful
 
 - (BOOL)saveToPath:(NSString*)aPath;
@@ -197,7 +197,7 @@
 - (NSString*)path;
 
 
-// Returns the root local path of the site if specified (nil if unspecified in 
+// Returns the root local path of the site if specified (nil if unspecified in
 // the site or site is not loaded)
 
 - (NSString*)siteLocalPath;
@@ -205,7 +205,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 // The following methods are available to plugin developers in Coda 1.6.1 and //
-// later.																	  //
+// later.                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
 
 // Returns the range of the word containing the insertion point
@@ -215,22 +215,22 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 // The following methods are available to plugin developers in Coda 1.6.3 and //
-// later.																	  //
+// later.                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
 
-// Returns the URL of the site if specified (nil if unspecified in 
-// the site or site is not loaded) 
+// Returns the URL of the site if specified (nil if unspecified in
+// the site or site is not loaded)
 
 - (NSString*)siteURL;
 
 
-// Returns the local URL of the site if specified (nil if unspecified in 
+// Returns the local URL of the site if specified (nil if unspecified in
 // the site or site is not loaded)
 
 - (NSString*)siteLocalURL;
 
 
-// Returns the root remote path of the site if specified (nil if unspecified in 
+// Returns the root remote path of the site if specified (nil if unspecified in
 // the site or site is not loaded)
 
 - (NSString*)siteRemotePath;
