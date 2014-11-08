@@ -8,6 +8,7 @@ FastTab for Coda lets you jump to any tab (up to 9, I guess) by pressing control
 
 ## Installation
 
-Double-click to install.
+[Download][download]. Double-click to install.
 
- [img]: http://justinhileman.info/fasttab-for-coda/jump-to-tabs-in-coda-with-fasttab.png
+ [download]: http://justinhileman.info/fasttab-for-coda/
+ [img]:      http://justinhileman.info/fasttab-for-coda/jump-to-tabs-in-coda-with-fasttab.png
