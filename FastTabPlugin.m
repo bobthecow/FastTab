@@ -2,27 +2,39 @@
 
 @implementation FastTabPlugin
 
+
+- (id)initWithPlugInController:(CodaPlugInsController*)controller_ plugInBundle:(id <CodaPlugInBundle>)bundle_ {
+    if (self = [super init]) {
+        [self initMenuWithController:controller_];
+    }
+    return self;
+}
+
 - (id)initWithPlugInController:(CodaPlugInsController*)controller_ bundle:(NSBundle*)bundle_ {
     if (self = [super init]) {
-        for (int i = 1; i <= 8; i++) {
-            [controller_ registerActionWithTitle:[NSString stringWithFormat:@"Select Tab %d", i]
-                           underSubmenuWithTitle:nil
-                                          target:self
-                                        selector:@selector(switchToTab:)
-                               representedObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:i] forKey:@"tabNum"]
-                                   keyEquivalent:[NSString stringWithFormat:@"^%d", i]
-                                      pluginName:@"FastTab"];
-        }
+        [self initMenuWithController:controller_];
+    }
+    return self;
+}
 
-        [controller_ registerActionWithTitle:@"Select Last Tab"
+- (void)initMenuWithController:(CodaPlugInsController*)controller_ {
+    for (int i = 1; i <= 8; i++) {
+        [controller_ registerActionWithTitle:[NSString stringWithFormat:@"Select Tab %d", i]
                        underSubmenuWithTitle:nil
                                       target:self
                                     selector:@selector(switchToTab:)
-                           representedObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:@"tabNum"]
-                               keyEquivalent:@"^9"
+                           representedObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:i] forKey:@"tabNum"]
+                               keyEquivalent:[NSString stringWithFormat:@"^%d", i]
                                   pluginName:@"FastTab"];
     }
-    return self;
+
+    [controller_ registerActionWithTitle:@"Select Last Tab"
+                   underSubmenuWithTitle:nil
+                                  target:self
+                                selector:@selector(switchToTab:)
+                       representedObject:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:0] forKey:@"tabNum"]
+                           keyEquivalent:@"^9"
+                              pluginName:@"FastTab"];
 }
 
 - (int) numberOfTabs
